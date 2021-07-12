@@ -22,20 +22,21 @@ const Product = {
         }
         return result
     },
-    getDetail: async()=>{
+    getDetail: async(id)=>{
 
         let conn, result
       
         try {
             conn = await pool.getConnection();
-            let query = "SELECT empresa, `direccion`, `cif`, nombre, `precio`, `valoracion` from empresas INNER JOIN productos on productos.empresaID=empresas.empresaID where productos.productoID=1";
-            result = await conn.query(query);
+            let query = "SELECT empresa, `direccion`, `cif`, nombre, `precio`, `valoracion` from empresas INNER JOIN productos on productos.empresaID=empresas.empresaID where productos.productoID=?";
+            result = await conn.query(query,[id]);
         } catch (error) {
-            console.log(`error`, error)
+           
         }finally{
             if(conn)
                 conn.end()
         }
+    
         return result
     }
 }

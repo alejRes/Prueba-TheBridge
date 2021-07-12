@@ -13,7 +13,7 @@ const routes ={
     getDetail: async (req, res)=>{
         let id =req.query.id
         try {
-            let resp= await Product.getDetail()
+            let resp= await Product.getDetail(id)
             console.log(`resp`, resp)
             res.status(200).json(resp)
         } catch (error) {
