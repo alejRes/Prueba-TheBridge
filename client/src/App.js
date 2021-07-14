@@ -14,6 +14,7 @@ function App() {
   const value={
     busqueda,
     save: guardarBusqueda
+    
   }
 
   return (
