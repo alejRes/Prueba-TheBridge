@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
+import { appContext } from '../../context/appContext'
+import axios from 'axios'
 
 function Detail() {
+    const [data, setdata] = useState([])
+    
+    useEffect(() => {
+        
+    }, [])
     return (
         <div>
-            <p>esto es details</p>
+
         </div>
     )
 }

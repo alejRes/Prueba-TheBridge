@@ -7,14 +7,10 @@ function Lista() {
     // const [row, setrow] = useState([])
 
     useEffect(() => {
-
-        axios.get('/search').then(datas => {
+        axios.get('/list').then(datas => {
             setdataRow(datas.data)
         })
-
     }, [])
-
-    const data = dataRow
 
     return(
         <div>
