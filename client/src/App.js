@@ -8,8 +8,8 @@ import Header from './components/Header/Header';
 function App() {
   const [busqueda, setBusqueda] = useState({})
 
-  const guardarBusqueda = ()=> {
-    setBusqueda()
+  const guardarBusqueda = (buscar)=> {
+    setBusqueda(buscar)
   }
   const value={
     busqueda,
@@ -19,10 +19,10 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-      <appContext.Provider value={value}>
-        <Header/>
-        <Main/>
-      </appContext.Provider>
+        <appContext.Provider value={value}>
+          <Header/>
+          <Main/>
+        </appContext.Provider>
       </BrowserRouter>
     </div>
   );

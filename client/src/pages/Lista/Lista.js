@@ -1,9 +1,24 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from "axios";
 
 function Lista() {
-    return (
+    
+    const [dataRow, setdataRow] = useState([])
+    // const [row, setrow] = useState([])
+
+    useEffect(() => {
+
+        axios.get('/search').then(datas => {
+            setdataRow(datas.data)
+        })
+
+    }, [])
+
+    const data = dataRow
+
+    return(
         <div>
-            <p>Esto es la vista lista</p>
+            
         </div>
     )
 }
