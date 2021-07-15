@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from "axios";
 
-function Lista() {
+function Lista(props) {
     
     const [dataRow, setdataRow] = useState([])
     // const [row, setrow] = useState([])
@@ -11,6 +11,7 @@ function Lista() {
             setdataRow(datas.data)
         })
     }, [])
+    
 
     return(
         <div>

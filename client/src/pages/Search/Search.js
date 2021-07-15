@@ -6,9 +6,11 @@ function Search() {
 
     const bucarProductos = async (articulo)=>{
         let resp = await axios.get(`/producto/?s=${articulo}`)
+        setData(resp.data)
     }
     const buscarEmpresas = async (articulo)=>{
         let resp = await axios.get(`/empresa/?s=${articulo}`)
+        setData(resp.data)
     }
 
     useEffect(() => {
