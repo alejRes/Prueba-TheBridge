@@ -1,5 +1,6 @@
 import React, {useEffect, useState, useContext}from 'react'
-
+import{appContext}from '../../context/appContext'
+import axios from 'axios'
 function Search() {
     const [data, setData] = useState([])
     const { busqueda } = useContext(appContext)
