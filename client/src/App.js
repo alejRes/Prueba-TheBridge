@@ -7,14 +7,16 @@ import Header from './components/Header/Header';
 
 function App() {
   const [busqueda, setBusqueda] = useState({})
+  const [id, setId] = useState()
 
   const guardarBusqueda = (buscar)=> {
     setBusqueda(buscar)
   }
   const value={
+    id,
     busqueda,
-    save: guardarBusqueda
-    
+    save: guardarBusqueda,
+    setId
   }
 
   return (

@@ -15,12 +15,11 @@ function Header() {
     let history=useHistory()
 
     const onHandleChange = (e) => {
-        e.target.value.length>2?
-            (setBuscador(e.target.value),
-            setValidateInput(true)):
+        if(e.target.value.length>2){
+            setBuscador(e.target.value)
+            setValidateInput(true)
+        }else
             setValidateInput(false)
-            
-        
     }
     const selectHandle = (e) => {
         setSeleccion(e.target.value)
@@ -40,8 +39,6 @@ function Header() {
     return (
 
         <div>
-
-            {/* <form action="" onSubmit={} >   */}
             <label htmlFor="tipo">Selecciona:</label>
             <select name="tipo" id="tipo" onChange={selectHandle}>
                 <option value="vacio"></option>
@@ -54,8 +51,6 @@ function Header() {
             {!validateInput? <p>rellena el campo de texto</p>: <></> }
 
             <button onClick={crearBusqueda}>buscar</button>
-
-
         </div>
 
     )
