@@ -42,10 +42,11 @@ const Product = {
     getProduct: async (search) => {
 
         let conn, result;
+        let s = `%${search}%`
         try {
             conn = await pool.getConnection();
-            let query = "SELECT * FROM `empresas` WHERE empresa=?";
-            result = await conn.query(query, [search]);
+            let query = "SELECT * FROM `productos` WHERE nombre LIKE ?";
+            result = await conn.query(query, [s]);
         } catch (error) {
 
         }finally{
@@ -57,10 +58,11 @@ const Product = {
     },
     getEnterprise: async(search)=>{
         let conn, result;
+        let s = `%${search}%`
         try {
             conn = await pool.getConnection();
-            let query = "SELECT * FROM `productos` WHERE nombre=?";
-            result = await conn.query(query, [search]);
+            let query = `SELECT * FROM empresas WHERE empresa LIKE ?`;
+            result = await conn.query(query, [s]);
         } catch (error) {
 
         }finally{
@@ -69,7 +71,7 @@ const Product = {
         }
         return result
     },
-    getOrderPoductby: async (orden, tipo)=>{
+    getOrderPoductby: async (orden)=>{
         let conn, result;
         try {
             conn = await pool.getConnection();

@@ -20,7 +20,7 @@ const routes ={
         }
     },
     getSearchProduct: async(req,res)=>{
-        let search = req.query.s
+        let search = req.params.s
         try {
             let resp =await Product.getProduct(search)
             res.status(200).json(resp)
@@ -29,7 +29,7 @@ const routes ={
         }
     },
     getSearchEnterprise: async(req,res)=>{
-        let search = req.query.s
+        let search = req.params.s
         try {
             let resp =await Product.getEnterprise(search);
             res.status(200).json(resp);
