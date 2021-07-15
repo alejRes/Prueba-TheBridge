@@ -11,10 +11,11 @@ function Lista(props) {
             setdataRow(datas.data)
         })
     }, [])
-    
+
 
     return(
         <div>
+            
             
         </div>
     )
