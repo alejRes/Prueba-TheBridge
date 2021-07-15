@@ -4,7 +4,7 @@ function Search() {
     const [data, setData] = useState([])
     const { busqueda } = useContext(appContext)
 
-    const bucarProductos = async (articulo)=>{
+    const buscarProductos = async (articulo)=>{
         let resp = await axios.get(`/producto/?s=${articulo}`)
         setData(resp.data)
     }
