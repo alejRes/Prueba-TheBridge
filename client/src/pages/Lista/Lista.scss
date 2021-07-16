@@ -1,0 +1,40 @@
+@import '../../Sass/colors';
+@import '../../Sass/mixins';
+
+h3{
+    color: cornsilk    
+}
+.lista{
+    background-color:$color-primary-dark;
+}
+.fila{
+    background-color: $color-bg;
+    
+}
+.boton{
+    border: none;
+    background-color: $color-bg;
+    width: 100%;
+    height: 100%;
+    font-weight: 900;
+    font-size: large;
+}
+.paginas{
+    @include flex-row-center;
+    >button {
+        margin: 16px 16px;
+        border:none;
+        background-color: $color-primary-dark;
+        font-size: x-large;
+    }
+    >p{
+        color:cornsilk;
+    }
+}
+.datos{
+    background-color: $color-primary-light;  
+}
+.celda{
+    color: cornsilk !important;
+        text-align: center!important;
+}
