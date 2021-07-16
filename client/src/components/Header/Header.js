@@ -15,7 +15,7 @@ function Header() {
     let history=useHistory()
 
     const onHandleChange = (e) => {
-        if(e.target.value.length>0){
+        if(e.target.value.length>3){
             setBuscador(e.target.value)
             setValidateInput(true)
         }else
@@ -54,7 +54,7 @@ function Header() {
             {!validateSelect? <p>selecciona una opción</p>: <></> }
             <label>Nombre:</label>
             <input type="text" name="buscador" id="buscador" placeholder='Introduce el nombre a buscar' onChange={onHandleChange} />
-            {!validateInput? <p>rellena el campo de texto</p>: <></> }
+            {!validateInput? <p>rellena el campo de texto con al menos 3 caracteres</p>: <></> }
 
             {validateSelect&&validateInput?<button onClick={crearBusqueda}>buscar</button>: <button disabled>buscar</button> }
         </div>

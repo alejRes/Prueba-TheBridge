@@ -10,17 +10,18 @@ function Search() {
     const [registro, setregistro] = useState(false)
     const { busqueda } = useContext(appContext)
 
-    useEffect(async () => {
 
-        let resp = await axios.get(`/${busqueda.tipo}/${busqueda.articulo}`)
-        setData(resp.data)
+    useEffect(() => {
 
+        axios.get(`/${busqueda.tipo}/${busqueda.articulo}`).then(resp=>setData(resp.data))
+        data.length >0? setregistro(true):setregistro(false)
     }, [])
-    useEffect(async () => {
+    useEffect(() => {
 
-        let resp = await axios.get(`/${busqueda.tipo}/${busqueda.articulo}`)
-        setData(resp.data)
-
+        axios.get(`/${busqueda.tipo}/${busqueda.articulo}`).then(resp=>setData(resp.data))
+        
+        data.length >0? setregistro(true):setregistro(false)
+       
 
     }, [busqueda])
 
