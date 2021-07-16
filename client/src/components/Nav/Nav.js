@@ -26,8 +26,8 @@ function Nav() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
             >
-                <MenuItem onClick={handleClose}><Link to='/list'>LISTA</Link></MenuItem>
-                <MenuItem onClick={handleClose}><Link to='/search'>BUSCADOR</Link></MenuItem>
+                <MenuItem onClick={handleClose} className='text'><Link to='/list'className='text'>LISTA</Link></MenuItem>
+                <MenuItem onClick={handleClose} className='text'><Link to='/search'className='text'>BUSCADOR</Link></MenuItem>
 
             </Menu>
         </div>

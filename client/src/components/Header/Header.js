@@ -44,7 +44,7 @@ function Header() {
 
     return (
 
-        <div>
+        <div className="header">
             <section>
                 <Nav/>
             </section>
