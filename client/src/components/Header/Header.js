@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { appContext } from '../../context/appContext'
 import { Redirect, useHistory } from 'react-router-dom'
-
+import Nav from '../Nav/Nav'
 
 function Header() {
 
@@ -45,6 +45,9 @@ function Header() {
     return (
 
         <div>
+            <section>
+                <Nav/>
+            </section>
             <label htmlFor="tipo">Selecciona:</label>
             <select name="tipo" id="tipo" onChange={selectHandle}>
                 <option value="vacio"></option>
