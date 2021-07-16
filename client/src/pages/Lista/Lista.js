@@ -6,6 +6,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { appContext } from '../../context/appContext';
 import { useHistory } from 'react-router-dom'
 import axios from "axios";
+import './Lista.scss'
 
 function Lista() {
 
@@ -119,25 +120,25 @@ function Lista() {
 
     const paintTable = () => {
         return (<Table>
-            <TableHead>
-                <TableRow>
+            <TableHead >
+                <TableRow className='fila'>
                     <TableCell>
-                        <button value='nombre' onClick={ordenacionProducto}> Producto {orden1}</button>
+                        <button value='nombre' onClick={ordenacionProducto} className="boton"> Producto {orden1}</button>
                     </TableCell>
                     <TableCell>
-                        <button value='precio' onClick={ordenacionProducto}>precio {orden2}</button>
+                        <button value='precio' onClick={ordenacionProducto} className="boton">precio {orden2}</button>
                     </TableCell>
                     <TableCell>
-                        <button value='valoracion' onClick={ordenacionProducto}> Valoracion {orden3}</button>
+                        <button value='valoracion' onClick={ordenacionProducto} className="boton"> Valoracion {orden3}</button>
                     </TableCell>
                 </TableRow>
             </TableHead>
             <TableBody>
                 {pagination.map((fila, i) => (
-                    <TableRow key={i}  >
-                        <TableCell id={fila.productoID} onClick={verDetalle}>{fila.nombre}</TableCell>
-                        <TableCell>{fila.precio}</TableCell>
-                        <TableCell>
+                    <TableRow key={i}  className="datos">
+                        <TableCell id={fila.productoID} onClick={verDetalle} className='celda'>{fila.nombre}</TableCell>
+                        <TableCell className='celda'>{fila.precio}</TableCell>
+                        <TableCell className='celda'>
                             <Box component="fieldset" mb={0} borderColor="transparent">
                                 <Rating name="read-only" value={fila.valoracion} precision={0.5} readOnly />
                             </Box>
@@ -150,11 +151,11 @@ function Lista() {
     }
     
     return (
-        <div>
+        <div className='Lista'>
             <h3>Lista de productos</h3>
             {paintTable()}
-            <section>
-                <div>
+            <section >
+                <div className='paginas'>
                     <button onClick={changePage} value='anterior'>Anterior</button>
                     <p>{pages} de {hasta}</p>
                     <button onClick={changePage} value='siguiente'>Siguiente</button>
