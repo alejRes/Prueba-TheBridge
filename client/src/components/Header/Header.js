@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { appContext } from '../../context/appContext'
 import { Redirect, useHistory } from 'react-router-dom'
-
+import Nav from '../Nav/Nav'
 
 function Header() {
 
@@ -15,14 +15,20 @@ function Header() {
     let history=useHistory()
 
     const onHandleChange = (e) => {
-        if(e.target.value.length>2){
+        if(e.target.value.length>3){
             setBuscador(e.target.value)
             setValidateInput(true)
         }else
             setValidateInput(false)
     }
     const selectHandle = (e) => {
-        setSeleccion(e.target.value)
+        if(e.target.value!=='vacio'){
+             setSeleccion(e.target.value)
+            setValidateSelect(true)
+        }else{
+            setValidateSelect(false)
+        }
+           
     }
     const crearBusqueda = (e) => {
         
@@ -39,6 +45,9 @@ function Header() {
     return (
 
         <div>
+            <section>
+                <Nav/>
+            </section>
             <label htmlFor="tipo">Selecciona:</label>
             <select name="tipo" id="tipo" onChange={selectHandle}>
                 <option value="vacio"></option>
@@ -48,9 +57,9 @@ function Header() {
             {!validateSelect? <p>selecciona una opción</p>: <></> }
             <label>Nombre:</label>
             <input type="text" name="buscador" id="buscador" placeholder='Introduce el nombre a buscar' onChange={onHandleChange} />
-            {!validateInput? <p>rellena el campo de texto</p>: <></> }
+            {!validateInput? <p>rellena el campo de texto con al menos 3 caracteres</p>: <></> }
 
-            <button onClick={crearBusqueda}>buscar</button>
+            {validateSelect&&validateInput?<button onClick={crearBusqueda}>buscar</button>: <button disabled>buscar</button> }
         </div>
 
     )
